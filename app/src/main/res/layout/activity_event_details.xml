@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="br.com.vicentec12.eventtest.ui.event_details.EventDetailsViewModel" />
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:context=".ui.event_details.EventDetailsActivity">
+
+        <include
+            android:id="@+id/lyt_toolbar"
+            layout="@layout/layout_toolbar_collapsing" />
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nsv_event_details"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <ViewFlipper
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inAnimation="@android:anim/fade_in"
+                android:measureAllChildren="false"
+                app:displayedChild="@{viewModel.viewFlipperChild}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lyt_toolbar">
+
+                <ProgressBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/default_spacing">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvw_details_title"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@{viewModel.event.title}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Title" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/ivw_details_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/minor_spacing"
+                        android:adjustViewBounds="true"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvw_details_title"
+                        app:srcCompat="@drawable/ic_price"
+                        app:tint="@color/colorBlack" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvw_details_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/minor_spacing"
+                        android:layout_marginEnd="@dimen/default_spacing"
+                        android:text="@{viewModel.event.priceCurrency}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="@id/ivw_details_price"
+                        app:layout_constraintLeft_toRightOf="@id/ivw_details_price"
+                        app:layout_constraintTop_toTopOf="@id/ivw_details_price"
+                        tools:text="R$ 20,00" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/ivw_details_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/default_spacing"
+                        android:layout_marginTop="@dimen/minor_spacing"
+                        android:adjustViewBounds="true"
+                        app:layout_constraintLeft_toRightOf="@id/tvw_details_price"
+                        app:layout_constraintTop_toBottomOf="@id/tvw_details_title"
+                        app:srcCompat="@drawable/ic_date"
+                        app:tint="@color/colorBlack" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvw_details_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/minor_spacing"
+                        android:layout_marginEnd="@dimen/default_spacing"
+                        android:text="@{viewModel.event.dateString}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="@id/ivw_details_date"
+                        app:layout_constraintLeft_toRightOf="@id/ivw_details_date"
+                        app:layout_constraintTop_toTopOf="@id/ivw_details_date"
+                        app:layout_goneMarginTop="@dimen/half_spacing"
+                        tools:text="29/07/2011" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/default_spacing"
+                        android:text="@{viewModel.event.description}"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ivw_details_date"
+                        tools:text="Description" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <include
+                    android:id="@id/lyt_error_message"
+                    layout="@layout/layout_error_message"
+                    app:message="@{viewModel.errorMessage == 0 ? @string/message_error_server : context.getString(viewModel.errorMessage)}" />
+
+            </ViewFlipper>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

@@ -1,0 +1,21 @@
+<resources>
+
+    <string name="app_name">Meus Eventos</string>
+
+    <!-- Labels -->
+    <string name="label_try_again">Tentar novamente</string>
+
+    <!-- Layout Error -->
+    <string name="message_error_server">Erro ao conectar com o servidor! Por favor, verifique sue conexão com a Internet.</string>
+
+    <!-- Activity Events -->
+    <string name="message_list_events">Eventos buscados com sucesso.</string>
+    <string name="message_error_list_events">Erro ao listar eventos.</string>
+
+    <!-- Activity Event Details -->
+    <string name="title_activity_event_details">Detalhes do Evento</string>
+    <string name="message_get_event_details">Detalhes do evento buscados com sucesso.</string>
+    <string name="message_error_get_event_details">Erro ao buscar detalhes do evento.</string>
+    <string name="label_details">Detalhes</string>
+
+</resources>

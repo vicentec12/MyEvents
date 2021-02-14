@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="br.com.vicentec12.eventtest.R" />
+
+        <variable
+            name="event"
+            type="br.com.vicentec12.eventtest.data.model.Event" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/half_spacing"
+        android:layout_marginVertical="@dimen/minor_spacing"
+        app:cardCornerRadius="@dimen/corner_radius_card_view">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivw_event_image"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:minHeight="96dp"
+                android:scaleType="centerCrop"
+                android:transitionName="event"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:url="@{event.image}"
+                tools:src="@drawable/ic_broken_image" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvw_event_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/default_spacing"
+                android:layout_marginTop="@dimen/default_spacing"
+                android:text="@{event.title}"
+                android:textColor="@color/colorBlack"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ivw_event_image"
+                app:layout_goneMarginTop="@dimen/half_spacing"
+                tools:text="Título" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivw_event_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/default_spacing"
+                android:layout_marginTop="@dimen/minor_spacing"
+                android:adjustViewBounds="true"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvw_event_title"
+                app:srcCompat="@drawable/ic_price"
+                app:tint="@color/colorBlack" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvw_event_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/minor_spacing"
+                android:layout_marginEnd="@dimen/default_spacing"
+                android:text="@{event.priceCurrency}"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/ivw_event_price"
+                app:layout_constraintLeft_toRightOf="@id/ivw_event_price"
+                app:layout_constraintTop_toTopOf="@id/ivw_event_price"
+                tools:text="R$ 20,00" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivw_event_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/default_spacing"
+                android:layout_marginTop="@dimen/minor_spacing"
+                android:adjustViewBounds="true"
+                app:layout_constraintLeft_toRightOf="@id/tvw_event_price"
+                app:layout_constraintTop_toBottomOf="@id/tvw_event_title"
+                app:srcCompat="@drawable/ic_date"
+                app:tint="@color/colorBlack" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvw_event_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/minor_spacing"
+                android:layout_marginEnd="@dimen/default_spacing"
+                android:text="@{event.dateString}"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/ivw_event_date"
+                app:layout_constraintLeft_toRightOf="@id/ivw_event_date"
+                app:layout_constraintTop_toTopOf="@id/ivw_event_date"
+                app:layout_goneMarginTop="@dimen/half_spacing"
+                tools:text="29/07/2011" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_event_details"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/default_spacing"
+                android:layout_marginTop="@dimen/minor_spacing"
+                android:layout_marginBottom="12dp"
+                android:text="@string/label_details"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvw_event_date" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

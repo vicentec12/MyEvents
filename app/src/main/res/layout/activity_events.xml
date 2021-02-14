@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="br.com.vicentec12.eventtest.ui.events.EventsViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.events.EventsActivity">
+
+        <include
+            android:id="@+id/lyt_toobar"
+            layout="@layout/layout_toolbar" />
+
+        <ViewFlipper
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:inAnimation="@android:anim/fade_in"
+            app:displayedChild="@{viewModel.viewFlipperChild}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/lyt_toobar">
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvw_events"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorLightGray"
+                android:clipToPadding="false"
+                android:paddingVertical="@dimen/minor_spacing"
+                app:items="@{viewModel.events}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_event" />
+
+            <include
+                android:id="@+id/lyt_error_message"
+                layout="@layout/layout_error_message"
+                app:message="@{viewModel.errorMessage == 0 ? @string/message_error_server : context.getString(viewModel.errorMessage)}" />
+
+        </ViewFlipper>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
