@@ -4,7 +4,7 @@ Aplicativo implementado para o teste de desenvolvedor Android
 
 # Arquitetura
 
-## MVVM
+## <a href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel">MVVM</a>
 
 Esta arquitetura foi escolhida, pois lida muito com chamadas de API utilizando outras Threads, além de, ter muito muito suporte por parte das bibliotecas do Architecture Component da Google, usando LiveData para receber dados e comunicar as Activities/Fragments (Camada de visualização) sobre as alterações, adicionando toda a lógica de negócio nos ViewModels deixando o código muito mais limpo e organizado.
 
