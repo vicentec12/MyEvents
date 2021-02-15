@@ -15,6 +15,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.appbar.AppBarLayout.Behavior.DragCallback
+import com.google.android.material.textfield.TextInputLayout
 import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.*
@@ -51,6 +52,28 @@ object Extensions {
             }
         })
         this.setExpanded(mExpandedToolbar, true)
+    }
+
+    fun TextInputLayout.isEmptyValue(): Boolean {
+        if (editText?.text.toString().trim().isEmpty()) {
+            addError(String.format(context.getString(R.string.message_error_empty_value), hint))
+            return false
+        }
+        return true
+    }
+
+    private fun TextInputLayout.addError(message: String?) {
+        error = message
+        parent.requestChildFocus(this, this)
+        if (endIconMode != TextInputLayout.END_ICON_NONE)
+            errorIconDrawable = null
+    }
+
+    fun TextInputLayout.removeError() {
+        if (error != null) {
+            error = null
+            isErrorEnabled = false
+        }
     }
 
     private fun createProgressDrawable(context: Context): CircularProgressDrawable {

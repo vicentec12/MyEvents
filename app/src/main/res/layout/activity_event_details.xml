@@ -21,7 +21,7 @@
             android:id="@+id/lyt_toolbar"
             layout="@layout/layout_toolbar_collapsing" />
 
-        <androidx.core.widget.NestedScrollView
+        <ScrollView
             android:id="@+id/nsv_event_details"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -29,10 +29,10 @@
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <ViewFlipper
+                android:id="@+id/vwf_event_details"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:inAnimation="@android:anim/fade_in"
-                android:measureAllChildren="false"
                 app:displayedChild="@{viewModel.viewFlipperChild}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -48,7 +48,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="@dimen/default_spacing">
+                    android:paddingHorizontal="@dimen/default_spacing"
+                    android:paddingTop="@dimen/default_spacing"
+                    android:paddingBottom="96dp">
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tvw_details_title"
@@ -115,7 +117,23 @@
                         app:layout_goneMarginTop="@dimen/half_spacing"
                         tools:text="29/07/2011" />
 
+                    <androidx.appcompat.widget.AppCompatImageButton
+                        android:id="@+id/ibt_details_maps"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/default_spacing"
+                        android:layout_marginTop="@dimen/minor_spacing"
+                        android:adjustViewBounds="true"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:layout_constraintLeft_toRightOf="@id/tvw_details_date"
+                        app:layout_constraintTop_toBottomOf="@id/tvw_details_title"
+                        app:srcCompat="@drawable/ic_map"
+                        app:tint="@color/colorBlack" />
+
                     <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvw_details_description"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/default_spacing"
@@ -134,7 +152,18 @@
 
             </ViewFlipper>
 
-        </androidx.core.widget.NestedScrollView>
+        </ScrollView>
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/efb_event_checkin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/default_spacing"
+            android:layout_marginTop="@dimen/default_spacing"
+            android:text="@string/label_checkin"
+            app:backgroundTint="@color/colorPrimary"
+            app:icon="@drawable/ic_check" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

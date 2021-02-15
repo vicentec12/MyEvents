@@ -32,19 +32,27 @@ class EventDetailsViewModel @Inject constructor(
     val isToolbarExpanded: LiveData<Boolean>
         get() = _isToolbarExpanded
 
+    private val _buttonVisibility: MutableLiveData<Boolean> = MutableLiveData()
+    val buttonVisibility: LiveData<Boolean>
+        get() = _buttonVisibility
+
     fun getEventDetails(mEventId: Int) {
-        viewModelScope.launch {
-            _viewFlipperChild.value = CHILD_PROGRESS
-            when (val result = mEventRepository.getEvent(mEventId)) {
-                is Result.Success -> {
-                    _event.value = result.data
-                    _viewFlipperChild.value = CHILD_DETAILS
-                    _isToolbarExpanded.value = true
-                }
-                is Result.Error -> {
-                    _errorMessage.value = result.message
-                    _viewFlipperChild.value = CHILD_MESSAGE
-                    _isToolbarExpanded.value = false
+        if (event.value == null) {
+            viewModelScope.launch {
+                _viewFlipperChild.value = CHILD_PROGRESS
+                _buttonVisibility.value = false
+                when (val result = mEventRepository.getEvent(mEventId)) {
+                    is Result.Success -> {
+                        _event.value = result.data
+                        _viewFlipperChild.value = CHILD_DETAILS
+                        _isToolbarExpanded.value = true
+                        _buttonVisibility.value = true
+                    }
+                    is Result.Error -> {
+                        _errorMessage.value = result.message
+                        _viewFlipperChild.value = CHILD_MESSAGE
+                        _isToolbarExpanded.value = false
+                    }
                 }
             }
         }

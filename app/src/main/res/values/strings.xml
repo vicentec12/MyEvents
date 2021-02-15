@@ -17,5 +17,18 @@
     <string name="message_get_event_details">Detalhes do evento buscados com sucesso.</string>
     <string name="message_error_get_event_details">Erro ao buscar detalhes do evento.</string>
     <string name="label_details">Detalhes</string>
+    <string name="label_checkin">Check-In</string>
+
+    <!-- Check-in Fragment -->
+    <string name="hint_name">Nome</string>
+    <string name="hint_email">E-mail</string>
+    <string name="label_effect_checkin">Efetuar Check-in</string>
+    <string name="message_insert_data_checkin">Insira seus dados para realizar check-in:</string>
+    <string name="message_checkin_event">Check-in realizado com sucesso.</string>
+    <string name="message_error_checkin_event">Erro ao realizar check-in.</string>
+    <string name="title_alert_dialog_notice">Aviso</string>
+    <string name="label_ok">Ok</string>
+    <string name="message_realizando_checkin">Realizando check-in...</string>
+    <string name="message_error_empty_value">Por favor, preencha o campo \"%s\"</string>
 
 </resources>

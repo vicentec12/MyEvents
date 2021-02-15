@@ -21,8 +21,9 @@ object BindingAdapters {
 
     @JvmStatic
     @BindingAdapter("displayedChild")
-    fun setDisplayedChild(mView: ViewFlipper, mChild: Int?) {
-        mView.displayedChild = mChild ?: 0
+    fun setDisplayedChild(mView: ViewFlipper, mChild: Int) {
+        if (mView.displayedChild != mChild)
+            mView.displayedChild = mChild
     }
 
     @JvmStatic

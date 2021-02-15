@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityOptionsCompat
 import androidx.lifecycle.ViewModelProvider
 import br.com.vicentec12.eventtest.EventsApp
 import br.com.vicentec12.eventtest.R
@@ -62,12 +61,7 @@ class EventsActivity : AppCompatActivity(), OnItemClickListener, View.OnClickLis
     override fun onItemClick(mView: View, mItem: Any?, mPosition: Int) {
         mItem?.let {
             val mEvent = it as Event
-            val options = ActivityOptionsCompat
-                .makeSceneTransitionAnimation(this, mView, mView.transitionName)
-            startActivity(
-                EventDetailsActivity.newIntentInstance(this, mEvent.id, mEvent.image),
-                options.toBundle()
-            )
+            startActivity(EventDetailsActivity.newIntentInstance(this, mEvent.id, mEvent.image))
         }
     }
 

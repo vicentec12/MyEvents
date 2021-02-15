@@ -19,4 +19,8 @@ class EventRepository @Inject constructor(
         return mEventeRemoteDataSource.getEvent(mId)
     }
 
+    override suspend fun checkinEvent(mEventId: Int, mName: String, mEmail: String): Result<Int> {
+        return mEventeRemoteDataSource.checkinEvent(mEventId, mName, mEmail)
+    }
+
 }

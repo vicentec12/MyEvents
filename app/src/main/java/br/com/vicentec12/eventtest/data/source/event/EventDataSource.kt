@@ -9,4 +9,6 @@ interface EventDataSource {
 
     suspend fun getEvent(mId: Int): Result<Event>
 
+    suspend fun checkinEvent(mEventId: Int, mName: String, mEmail: String): Result<Int>
+
 }

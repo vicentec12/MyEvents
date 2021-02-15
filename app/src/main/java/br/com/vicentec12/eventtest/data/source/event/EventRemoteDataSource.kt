@@ -40,4 +40,18 @@ class EventRemoteDataSource @Inject constructor(
         }
     }
 
+    override suspend fun checkinEvent(mEventId: Int, mName: String, mEmail: String): Result<Int> =
+        withContext(Dispatchers.IO) {
+            try {
+                val mResponse = mEventsService.checkinEvent(mEventId, mName, mEmail)
+                if (mResponse.isSuccessful)
+                    Result.Success(mResponse.body()!!.code, R.string.message_checkin_event)
+                else
+                    Result.Error(R.string.message_error_checkin_event)
+            } catch (e: Exception) {
+                e.printStackTrace()
+                Result.Error(R.string.message_error_server)
+            }
+        }
+
 }
