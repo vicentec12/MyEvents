@@ -29,3 +29,6 @@ Utilizada para baixar e mostrar imagens através de URL, dentre todas as bibliot
 ## <a href="https://site.mockito.org/">Mockito</a>
 
 Usado para criar objetos "falsos" de objetos existentes para ajudar nos testes sem precisar utilizar os reais, fazendo com que se tenha mais controle na hora de realizar um teste.
+
+# Imagens do Aplicativo
+![alt text](https://github.com/vicentec12/MyEvents/tree/master/app/src/main/assets/img1.jpg)
