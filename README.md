@@ -25,3 +25,7 @@ Auxilia no gerenciamento de Threads, sendo ideal para operações pesadas, como 
 ## <a href="https://github.com/bumptech/glide">Glide</a>
 
 Utilizada para baixar e mostrar imagens através de URL, dentre todas as bibliotecas, ela se destaca pela velocidade do download das imagens além que trabalhar muito bem com caches de imagens já baixadas.
+
+## <a href="https://site.mockito.org/">Mockito</a>
+
+Usado para criar objetos "falsos" de objetos existentes para ajudar nos testes sem precisar utilizar os reais, fazendo com que se tenha mais controle na hora de realizar um teste.
