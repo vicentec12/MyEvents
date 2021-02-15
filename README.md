@@ -31,8 +31,9 @@ Utilizada para baixar e mostrar imagens através de URL, dentre todas as bibliot
 Usado para criar objetos "falsos" de objetos existentes para ajudar nos testes sem precisar utilizar os reais, fazendo com que se tenha mais controle na hora de realizar um teste.
 
 # Imagens do Aplicativo
-![Imagem1](https://github.com/vicentec12/MyEvents/blob/master/app/src/main/assets/img1.jpg)
-![Imagem2](https://github.com/vicentec12/MyEvents/blob/master/app/src/main/assets/img2.jpg)
-![Imagem3](https://github.com/vicentec12/MyEvents/blob/master/app/src/main/assets/img3.jpg)
-![Imagem4](https://github.com/vicentec12/MyEvents/blob/master/app/src/main/assets/img4.jpg)
-![Imagem5](https://github.com/vicentec12/MyEvents/blob/master/app/src/main/assets/img5.jpg)
+<img src="https://github.com/vicentec12/MyEvents/blob/master/app/src/main/assets/img1.jpg" alt="Imagem 1" width="360">
+<img src="https://github.com/vicentec12/MyEvents/blob/master/app/src/main/assets/img2.jpg" alt="Imagem 2" width="360">
+<img src="https://github.com/vicentec12/MyEvents/blob/master/app/src/main/assets/img3.jpg" alt="Imagem 3" width="360">
+<img src="https://github.com/vicentec12/MyEvents/blob/master/app/src/main/assets/img4.jpg" alt="Imagem 4" width="360">
+<img src="https://github.com/vicentec12/MyEvents/blob/master/app/src/main/assets/img5.jpg" alt="Imagem 5" width="360">
+
