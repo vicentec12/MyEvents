@@ -12,7 +12,7 @@ Esta arquitetura foi escolhida, pois lida muito com chamadas de API utilizando o
 
 ## <a href="https://square.github.io/retrofit"/>Retrofit</a>
 
-Utilizada para realizar requisições HTTP, muito fácil de implementar e desserializa as respostas em JSON muito rapidamente. É amplamente recomendada pela comunidade e até mesmo pela própria Google.
+Utilizada para realizar requisições HTTP, sendo muito fácil de implementar, além de desserializar as respostas em JSON muito rapidamente. É amplamente recomendada pela comunidade e até mesmo pela própria Google.
 
 ## <a href="https://dagger.dev/dev-guide/android">Dagger 2</a>
 
